@@ -1,9 +1,16 @@
-<script setup></script>
-
 <template>
-  <div class="text-3xl font-bold underline">466644</div>
+  <Default>
+    <router-view></router-view>
+  </Default>
+  <div ref="container"></div>
 </template>
-
-<style>
-@import "@/assets/base.css";
-</style>
+<script>
+import Default from "@/layouts/default.vue";
+export default {
+  components: { Default },
+  setup() {
+    return {};
+  },
+};
+</script>
+<style></style>
