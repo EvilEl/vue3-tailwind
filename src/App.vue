@@ -1,13 +1,6 @@
-<template>
-  <Default>
-    <router-view></router-view>
-  </Default>
-  <div ref="container"></div>
-</template>
+<template></template>
 <script>
-import Default from "@/layouts/default.vue";
 export default {
-  components: { Default },
   setup() {
     return {};
   },

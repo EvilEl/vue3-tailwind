@@ -10,8 +10,11 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.41",
+    "@vuelidate/validators": "^2.0.0-alpha.29",
     "@vueuse/core": "^8.4.0",
     "node": "^17.7.2",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.13",
     "uniqid": "^5.4.0",
     "vue": "^3.2.33",

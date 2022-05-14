@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import nprogress from "nprogress";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,17 +7,16 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: () => import("@/views/Auth.vue"),
-    },
-    {
-      path: "/task",
-      name: "task",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("@/views/Todos.vue"),
+      name: "App",
+      component: () => import("@/App.vue"),
     },
   ],
+});
+router.beforeEach((from, to, next) => {
+  nprogress.start();
+  next();
+});
+router.afterEach((to) => {
+  nprogress.done();
 });
 export default router;
