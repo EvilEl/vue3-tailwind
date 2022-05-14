@@ -5,7 +5,6 @@ import router from "./router";
 import "./css/tailwind.css";
 import "nprogress/nprogress.css";
 const app = createApp(App);
-
 app.use(createPinia());
 app.use(router);
 

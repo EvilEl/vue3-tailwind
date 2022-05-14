@@ -7,8 +7,13 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "App",
-      component: () => import("@/App.vue"),
+      name: "AuthLayout",
+      component: () => import("@/AuthLayout.vue"),
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: () => import("@/views/Dashobard.vue"),
     },
   ],
 });

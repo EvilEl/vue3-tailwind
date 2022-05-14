@@ -1,8 +1,16 @@
-<template></template>
+<template>
+  <AuthLayout />
+</template>
 <script>
+import AuthLayout from "./layouts/AuthLayout.vue";
+import { auth } from "./store/auth";
 export default {
+  components: { AuthLayout },
   setup() {
-    return {};
+    const storeAuth = auth();
+    return {
+      storeAuth,
+    };
   },
 };
 </script>
