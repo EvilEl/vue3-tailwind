@@ -11,5 +11,8 @@ export const auth = defineStore("main", {
       const user = window.localStorage.getItem("user");
       this.hasAuthorizedUser = user;
     },
+    isLogin() {
+      this.hasAuthorizedUser = !this.hasAuthorizedUser;
+    },
   },
 });

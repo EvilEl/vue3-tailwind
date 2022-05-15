@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import nprogress from "nprogress";
+import { auth } from "../store/auth.js";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,13 +16,21 @@ const router = createRouter({
       path: "/dashboard",
       name: "Dashboard",
       component: () => import("@/views/Dashobard.vue"),
-      meta: { test: "AuthLayout" },
+      meta: { test: "AuthLayout", requiresAuth: true },
     },
   ],
 });
 router.beforeEach((from, to, next) => {
-  // nprogress.start();
-  next();
+  const test = auth();
+  if (from.meta.requiresAuth) {
+    if (test.getTest) {
+      next();
+      return;
+    }
+    next("/");
+  } else {
+    next();
+  }
 });
 router.afterEach((to) => {
   // nprogress.done();

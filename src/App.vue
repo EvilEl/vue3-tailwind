@@ -10,7 +10,6 @@ export default {
   setup() {
     const router = useRoute();
     const meta = computed(() => router.meta.test);
-
     return { meta, router };
   },
 };

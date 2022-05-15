@@ -7,13 +7,22 @@
           Текст акции всегда отражает суть, а не просто болтовню, поэтому
           внимательнее
         </p>
-        <router-link class="home__link" to="Dashboard"> Подробнее </router-link>
+        <router-link @click="isLogin" class="home__link" to="Dashboard">
+          Подробнее
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+import { auth } from "@/store/auth.js";
+export default {
+  setup() {
+    const storeAuth = auth();
+    const isLogin = storeAuth.isLogin;
+    return { isLogin };
+  },
+};
 </script>
 <style lang="scss">
 .home {

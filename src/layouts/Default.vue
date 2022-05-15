@@ -24,10 +24,7 @@ export default {
     const storeAuth = auth();
     const getTest = computed(() => storeAuth.getTest);
     onMounted(() => {
-      window.localStorage.setItem("user", true);
-    });
-    onBeforeUnmount(() => {
-      //   window.localStorage.setItem("user", false);
+      window.localStorage.setItem("user", false);
     });
     // const links = [
     //   {
