@@ -7,21 +7,23 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "AuthLayout",
-      component: () => import("@/AuthLayout.vue"),
+      name: "Home",
+      component: () => import("@/views/Home.vue"),
+      meta: { test: "Default" },
     },
     {
       path: "/dashboard",
-      name: "dashboard",
+      name: "Dashboard",
       component: () => import("@/views/Dashobard.vue"),
+      meta: { test: "AuthLayout" },
     },
   ],
 });
 router.beforeEach((from, to, next) => {
-  nprogress.start();
+  // nprogress.start();
   next();
 });
 router.afterEach((to) => {
-  nprogress.done();
+  // nprogress.done();
 });
 export default router;

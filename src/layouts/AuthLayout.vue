@@ -1,51 +1,17 @@
 <template>
   <div class="auth-layout bg-cyan-500">
-    <ul class="auth-layout__list flex p-10">
-      <li
-        class="auth-layout__item ml-3 first:ml-0 text-gray-50 hover:text-gray-500 border-2 p-2 rounded-md"
-        v-for="link in links"
-        :key="link.title"
-      >
-        <router-link @click="checkStatusUser" :to="link.name">
-          {{ link.title }}
-        </router-link>
-      </li>
-    </ul>
+    <router-link to="/">Home</router-link>
   </div>
-  <router-view v-slot="{ Component }">
-    <component :is="Component" />
-  </router-view>
+  <slot></slot>
 </template>
 <script>
-import { computed, onMounted, onBeforeUnmount } from "vue";
-import { auth } from "@/store/auth.js";
+import { computed, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 export default {
   setup() {
-    const storeAuth = auth();
-    const getTest = computed(() => storeAuth.getTest);
-    onMounted(() => {
-      window.localStorage.setItem("user", true);
-    });
-    onBeforeUnmount(() => {
-      window.localStorage.setItem("user", false);
-    });
-    const links = [
-      {
-        title: "Sign In",
-        name: "dashboard",
-      },
-      {
-        title: "Sign Up",
-        name: "Sign Up",
-      },
-    ];
-    const checkStatusUser = storeAuth.checkStatusUser;
-    return {
-      links,
-      getTest,
-      checkStatusUser,
-    };
+    const router = useRoute();
+    return {};
   },
 };
 </script>
-<style></style>
+<style lang="scss"></style>

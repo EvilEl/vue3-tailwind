@@ -1,16 +1,17 @@
 <template>
-  <AuthLayout />
+  <component :is="meta">
+    <router-view></router-view>
+  </component>
 </template>
 <script>
-import AuthLayout from "./layouts/AuthLayout.vue";
-import { auth } from "./store/auth";
+import { computed, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 export default {
-  components: { AuthLayout },
   setup() {
-    const storeAuth = auth();
-    return {
-      storeAuth,
-    };
+    const router = useRoute();
+    const meta = computed(() => router.meta.test);
+
+    return { meta, router };
   },
 };
 </script>
